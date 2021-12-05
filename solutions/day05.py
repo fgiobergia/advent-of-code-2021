@@ -2,7 +2,7 @@ import numpy as np
 import re
 
 if __name__ == "__main__":
-    with open("test.input") as f:
+    with open("day05.input") as f:
         pts = []
         for line in f.readlines():
             m = re.match(r"^(\d+),(\d+) -> (\d+),(\d+)$", line.strip())
