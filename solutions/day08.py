@@ -1,26 +1,4 @@
-from collections import Counter, defaultdict
-
-# def find_letters(comb, observed):
-#     known = defaultdict(set)
-
-#     finished = False
-#     i = 0
-#     while not finished:
-#         o = observed[i]
-#         if len(o) == 2:
-#             known["c"] &= o
-#             known["f"] &= o
-#         elif len(o) == 3:
-#             known["a"] &= o
-#             known["c"] &= o
-#             known["f"] &= o
-#         elif len(o) == 4:
-#             known["c"] &= o
-#             known["f"] &= o
-#             known["d"] &= o
-#             known["b"] &= o
-
-#         i = (i + 1) % len(observed)
+from collections import Counter
     
 def find_mapping(obs):
     cnt = Counter("".join(obs))
@@ -48,8 +26,6 @@ def find_mapping(obs):
     d = list(d)[0]
 
     return g,f,e,d,c,b,a
-
-
 
 
 if __name__ == "__main__":
