@@ -1,3 +1,4 @@
+# 💥
 from functools import reduce
 
 def first_error(line):
