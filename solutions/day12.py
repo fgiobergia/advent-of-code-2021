@@ -2,7 +2,6 @@ import networkx as nx
 
 def visit(G, visited_list, current_pos, currently_visited, twice):
     if current_pos == "end":
-        # print(currently_visited)
         if currently_visited not in visited_list:
             visited_list.append(currently_visited)
         return
