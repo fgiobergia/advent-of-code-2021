@@ -25,5 +25,5 @@ if __name__ == "__main__":
         
         dots = np.array(dots)
         origami = np.full((dots[:,1].max()+1, dots[:,0].max()+1), " ")
-        origami[dots[:,1], dots[:,0]] = "#"
+        origami[dots[:,1], dots[:,0]] = "█"
         print("\n".join( "".join(x) for x in origami))
