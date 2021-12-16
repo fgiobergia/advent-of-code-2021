@@ -20,7 +20,7 @@ Let's keep the tradition going and help save Christmas once more!
                / (19) (20) (21) \
                /                \
               /%+%+%+%+%+%+%+%+%+\
-             /  (16)  (17)  (18)  \
+             /   (*)  (17)  (18)  \
             /                      \
             /$?$?$?$?$?$?$?$?$?$?$?\
            /   (*)  (*)  (*)  (*)   \
