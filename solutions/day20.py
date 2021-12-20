@@ -15,10 +15,6 @@ def apply_algo(grid, algo, iter=0):
             new_grid[i,j] = algo[(2**np.arange(8, -1, -1)[grid[i-1:i+2, j-1:j+2].flatten()]).sum()]
     return new_grid
 
-def print_grid(g):
-    for row in g.tolist():
-        print("".join([ "#" if r else "." for r in row]))
-
 if __name__ == "__main__":
     with open("day20.input") as f:
         algo = np.array(list(f.readline())) == "#"
