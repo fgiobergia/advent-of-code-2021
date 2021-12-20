@@ -15,7 +15,7 @@ if __name__ == "__main__":
             line = line.strip()
             if not line:
                 new_scanner = True
-                continue # break
+                continue
             if new_scanner:
                 sid = int(re.match(r"--- scanner (\d+) ---", line).group(1))
                 scans[sid] = []
