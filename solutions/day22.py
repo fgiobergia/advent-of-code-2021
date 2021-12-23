@@ -1,5 +1,6 @@
 import re
 from itertools import product
+from tqdm import tqdm
 
 def inters_axis(a1, a2, b1, b2):
     if b1 <= a1 <= b2 <= a2:
@@ -27,7 +28,7 @@ def intersects(cube_a, cube_b):
 
 def switch(cmds):
     cubes = set()
-    for op, cb in cmds:
+    for op, cb in tqdm(cmds):
         all_cubes_b = { cb }
 
         new_cubes_a = set()
@@ -56,6 +57,14 @@ def switch(cmds):
                     new_cubes_a.remove(cube_a)
             
                 a_has_intersected = True
+
+                if intersection == cube_a:
+                    # all of cube_a is contained in cube_b. 
+                    # Instead of splitting everything, let's just
+                    # (1) remove cube_a from new_cubes_a, 
+                    # (2) add cube_b to all_new_cubes_b
+                    all_new_cubes_b |= { cube_b } | still_missing_b
+                    break
             
                 x1a, x2a, y1a, y2a, z1a, z2a = cube_a
                 x1b, x2b, y1b, y2b, z1b, z2b = cube_b
@@ -99,5 +108,5 @@ if __name__ == "__main__":
     cmds_50 = [ (op, c) for op, c in cmds if -50 <= c[0] <= c[1] <= 50 and -50 <= c[2] <= c[3] <= 50 and -50 <= c[4] <= c[5] <= 50]
 
     print(sum(map(cube_size, switch(cmds_50))))
-    # 49 mins for part 2 -- idgaf, I just want this to be over 😅
+    # 23 mins for part 2 😅
     print(sum(map(cube_size, switch(cmds))))
