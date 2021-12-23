@@ -14,7 +14,7 @@ Let's keep the tradition going and help save Christmas once more!
                     / (24) \
                    /        \
                   /~`~`~`~`~`\
-                 / (22) (23)  \
+                 /  (*) (23)  \
                  /            \
                 /*&*&*&*&*&*&*&\
                /  (*)  (*)  (*) \
