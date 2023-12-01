@@ -61,20 +61,14 @@ def move(burrows, corridor, curr_cost, known_states={}):
     
     # then, try to move the first available AM in each burrow
     for bur in "ABCD":
-        # if burrows[bur] == [' ', ' '] or burrows[bur] == [' ', bur] or burrows[bur] == [bur] * 2:
         if all([ c == ' ' or c == bur for c in burrows[bur]]):
-            # edge cases where
-            # 1. no one is home (can't move anyone)
-            # 2. an AM is at the bottom of the correct burrow, no point in moving them
-            # 3. the burrow is filled with the right people, leave them there!
+            # edge cases where the burrow is filled with those who belong -- no point in getting them out (or nobody)
             continue
         pos = sum(c == ' ' for c in burrows[bur])
         am = burrows[bur][pos]
         out_steps = 1 + pos # num of steps to get out of burrow
         start_pos = addresses[bur] # now that AM is out, they belong to the corridor! they must move left or right
-        # try left
-
-        for step in [-1, +1]:
+        for step in [-1, +1]: # left/right
             new_pos = start_pos+step
             new_steps = 1
             new_burrows = deepcopy(burrows)
@@ -102,7 +96,7 @@ if __name__ == "__main__":
     with open("input23") as f:
         lines = f.readlines()
 
-    burrows = { # pop from 0
+    burrows = {
         "A": [lines[2][3], lines[3][3]], 
         "B": [lines[2][5], lines[3][5]],
         "C": [lines[2][7], lines[3][7]],
@@ -112,7 +106,7 @@ if __name__ == "__main__":
     corridor = [" "] * 11
     print(move(burrows, corridor, 0))
 
-    burrows = { # pop from 0
+    burrows = {
         "A": [lines[2][3], "D", "D", lines[3][3]], 
         "B": [lines[2][5], "C", "B", lines[3][5]],
         "C": [lines[2][7], "B", "A", lines[3][7]],
